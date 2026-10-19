@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indian Flight Route Optimizer</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div><div class="eyebrow">DAA PROJECT · FLIGHT NETWORK</div><h1>Indian Flight Route Optimizer</h1></div>
+  <div id="dbStatus" class="status">Checking file storage…</div>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <section class="panel">
+      <h2>Find a route</h2>
+      <label for="startAirport">From airport</label><select id="startAirport"></select>
+      <label for="endAirport">To airport</label><select id="endAirport"></select>
+      <label for="algorithm">Algorithm</label>
+      <select id="algorithm"><option value="dijkstra">Dijkstra — shortest distance</option><option value="bfs">BFS — fewest flight legs</option></select>
+      <button id="findBtn" class="primary">Find route</button>
+      <div id="routeResult" class="result muted">Choose two airports to calculate a route.</div>
+    </section>
+    <section class="panel">
+      <h2>Simulate diversion</h2>
+      <p class="help">Temporarily close a route and find an alternate path. This simulation does not permanently change the database.</p>
+      <label for="blockedRoute">Route to close</label><select id="blockedRoute"></select>
+      <button id="divertBtn">Find diversion</button>
+      <div id="diversionResult" class="result muted">Select a route to simulate a closure.</div>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><h2>Network overview</h2><button id="refreshBtn" class="small">Refresh</button></div>
+      <div class="stats"><div><strong id="airportCount">—</strong><span>Airports</span></div><div><strong id="routeCount">—</strong><span>Routes</span></div><div><strong id="activeCount">—</strong><span>Active</span></div></div>
+      <p class="help">Distances and airport coordinates are sample project data, not live airline schedules.</p>
+    </section>
+  </aside>
+  <section class="map-panel">
+    <div class="map-title"><div><h2>India flight network</h2><p>Click a marker to view airport details</p></div><div class="legend"><span class="dot airport-dot"></span> Airport <span class="line"></span> Route <span class="line selected-line"></span> Calculated path</div></div>
+    <div id="map"></div>
+    <div class="map-foot">Map tiles © OpenStreetMap contributors · Internet connection required for map tiles</div>
+  </section>
+</main>
+<section class="management">
+  <div class="management-header"><div><div class="eyebrow">NETWORK ADMINISTRATION</div><h2>Manage airports and routes</h2><p>Add, edit, deactivate, restore or delete records. Changes are saved in local JSON files.</p></div></div>
+  <div class="manage-grid">
+    <div class="panel">
+      <h3>Add airport</h3>
+      <form id="airportForm" class="form-grid">
+        <label>Code<input name="code" required maxlength="5" placeholder="e.g. JAI"></label>
+        <label>City<input name="city" required placeholder="Jaipur"></label>
+        <label class="wide">Airport name<input name="name" required placeholder="Airport full name"></label>
+        <label>Latitude<input name="lat" required type="number" step="any" min="-90" max="90" placeholder="26.82"></label>
+        <label>Longitude<input name="lon" required type="number" step="any" min="-180" max="180" placeholder="75.80"></label>
+        <button class="primary wide" type="submit">Add airport</button>
+      </form>
+      <div id="airportMessage" class="form-message"></div>
+      <h3 class="table-heading">Airport records</h3>
+      <div class="table-wrap"><table><thead><tr><th>Code</th><th>Airport / city</th><th>Actions</th></tr></thead><tbody id="airportTable"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <h3>Add route</h3>
+      <form id="routeForm" class="form-grid">
+        <label>From<select name="source_id" id="routeSource" required></select></label>
+        <label>To<select name="destination_id" id="routeDestination" required></select></label>
+        <label class="wide">Distance (km)<input name="distance" required type="number" min="1" step="0.1" placeholder="e.g. 500"></label>
+        <button class="primary wide" type="submit">Add route</button>
+      </form>
+      <div id="routeMessage" class="form-message"></div>
+      <h3 class="table-heading">Route records</h3>
+      <div class="table-wrap"><table><thead><tr><th>Connection</th><th>Distance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="routeTable"></tbody></table></div>
+    </div>
+  </div>
+</section>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

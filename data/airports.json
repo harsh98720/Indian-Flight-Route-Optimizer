@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "code": "DEL",
+    "name": "Indira Gandhi International",
+    "city": "Delhi",
+    "lat": 28.5562,
+    "lon": 77.1
+  },
+  {
+    "id": 2,
+    "code": "BOM",
+    "name": "Chhatrapati Shivaji Maharaj International",
+    "city": "Mumbai",
+    "lat": 19.0896,
+    "lon": 72.8656
+  },
+  {
+    "id": 3,
+    "code": "BLR",
+    "name": "Kempegowda International",
+    "city": "Bengaluru",
+    "lat": 13.1986,
+    "lon": 77.7066
+  },
+  {
+    "id": 4,
+    "code": "MAA",
+    "name": "Chennai International",
+    "city": "Chennai",
+    "lat": 12.9941,
+    "lon": 80.1709
+  },
+  {
+    "id": 5,
+    "code": "HYD",
+    "name": "Rajiv Gandhi International",
+    "city": "Hyderabad",
+    "lat": 17.2403,
+    "lon": 78.4294
+  },
+  {
+    "id": 6,
+    "code": "CCU",
+    "name": "Netaji Subhas Chandra Bose International",
+    "city": "Kolkata",
+    "lat": 22.6547,
+    "lon": 88.4467
+  },
+  {
+    "id": 7,
+    "code": "AMD",
+    "name": "Sardar Vallabhbhai Patel International",
+    "city": "Ahmedabad",
+    "lat": 23.0772,
+    "lon": 72.6347
+  },
+  {
+    "id": 8,
+    "code": "COK",
+    "name": "Cochin International",
+    "city": "Kochi",
+    "lat": 10.152,
+    "lon": 76.4019
+  },
+  {
+    "id": 9,
+    "code": "PNQ",
+    "name": "Pune Airport",
+    "city": "Pune",
+    "lat": 18.5822,
+    "lon": 73.9197
+  },
+  {
+    "id": 10,
+    "code": "GOI",
+    "name": "Manohar International",
+    "city": "Goa",
+    "lat": 15.7443,
+    "lon": 73.8606
+  },
+  {
+    "id": 11,
+    "code": "LKO",
+    "name": "Chaudhary Charan Singh International",
+    "city": "Lucknow",
+    "lat": 26.7606,
+    "lon": 80.8893
+  },
+  {
+    "id": 12,
+    "code": "GAU",
+    "name": "Lokpriya Gopinath Bordoloi International",
+    "city": "Guwahati",
+    "lat": 26.1061,
+    "lon": 91.5859
+  },
+  {
+    "id": 13,
+    "code": "IXC",
+    "name": "Shaheed Bhagat Singh International Airport",
+    "city": "Mohali",
+    "lat": 30.6735,
+    "lon": 76.7885
+  },
+  {
+    "id": 14,
+    "code": "ATQ",
+    "name": "Sri Guru Ram Dass Jee International Airport",
+    "city": "Amritsar",
+    "lat": 31.7096,
+    "lon": 74.7973
+  },
+  {
+    "id": 15,
+    "code": "JAI",
+    "name": "Jaipur International Airport",
+    "city": "Jaipur",
+    "lat": 26.8242,
+    "lon": 75.8122
+  }
+]
